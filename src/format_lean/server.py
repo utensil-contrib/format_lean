@@ -27,10 +27,11 @@ class Server:
             f'"file_name": "{filename}", ' \
             f'"line": {line},"column":{col}}}\n'
         self.proc.stdin.write(s)
-        ret = json.loads(self.proc.stdout.readline().rstrip())
+        ret_str = self.proc.stdout.readline().rstrip()
+        ret = json.loads(ret_str)
         if 'record' in ret:
             return ret['record']['state']
         else:
-            return ret
+            return ret_str
 #         else:
 #             raise LeanError(ret)
