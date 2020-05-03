@@ -31,6 +31,6 @@ class Server:
         if 'record' in ret:
             return ret['record']['state']
         else:
-            return ''
+            return ret
 #         else:
 #             raise LeanError(ret)
